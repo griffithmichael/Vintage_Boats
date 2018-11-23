@@ -22,4 +22,19 @@ Route::get('/about', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+
+Route::get('/boats', 'BoatController@index');
+
+Route::get('/galleries', 'GalleryController@index');
+
+Route::get('/galleries/{user_id}/{picture_id}', 'GalleryController@show');
+
+Route::get('/galleries/upload', 'GalleryController@upload');
+Route::post('/galleries/upload', 'GalleryController@store')->name('gallery.upload');
+
 Route::get('/events', 'EventController@index');
+Route::post('/events', 'EventController@store')->name('events.store');
+
+

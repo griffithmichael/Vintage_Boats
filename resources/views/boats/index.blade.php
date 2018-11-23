@@ -10,7 +10,7 @@
 
           <div class="blog-post">
             <h2 class="blog-post-title">
-            Event Calendar</h2>
+            Your Boats</h2>
 
                    {!! Form::open(array('route' => 'events.store','method'=>'POST','files'=>'true')) !!}
                     <div class="row">
@@ -25,57 +25,67 @@
  
                       <div class="col-xs-4 col-sm-4 col-md-4">
                         <div class="form-group">
-                            {!! Form::label('event_name','Event Name:') !!}
+                            {!! Form::label('VIN','VIN:') !!}
                             <div class="">
-                            {!! Form::text('event_name', null, ['class' => 'form-control']) !!}
-                            {!! $errors->first('event_name', '<p class="alert alert-danger">:message</p>') !!}
+                            {!! Form::text('VIN', null, ['class' => 'form-control']) !!}
+                            {!! $errors->first('VIN', '<p class="alert alert-danger">:message</p>') !!}
                             </div>
                         </div>
                       </div>
 
                       <div class="col-xs-4 col-sm-4 col-md-4">
                         <div class="form-group">
-                            {!! Form::label('location','Location:') !!}
+                            {!! Form::label('model','Model:') !!}
                             <div class="">
-                            {!! Form::text('location', null, ['class' => 'form-control']) !!}
-                            {!! $errors->first('location', '<p class="alert alert-danger">:message</p>') !!}
+                            {!! Form::text('model', null, ['class' => 'form-control']) !!}
+                            {!! $errors->first('model', '<p class="alert alert-danger">:message</p>') !!}
                             </div>
                         </div>
                       </div>
 
                       <div class="col-xs-4 col-sm-4 col-md-4">
                         <div class="form-group">
-                            {!! Form::label('description','Description:') !!}
+                            {!! Form::label('manufacturer','Manufacturer:') !!}
                             <div class="">
-                            {!! Form::text('description', null, ['class' => 'form-control']) !!}
-                            {!! $errors->first('description', '<p class="alert alert-danger">:message</p>') !!}
+                            {!! Form::text('manufacturer', null, ['class' => 'form-control']) !!}
+                            {!! $errors->first('manufacturer', '<p class="alert alert-danger">:message</p>') !!}
                             </div>
                         </div>
                       </div>
 
  
-                      <div class="col-xs-3 col-sm-3 col-md-3">
+                      <div class="col-xs-4 col-sm-4 col-md-4">
                         <div class="form-group">
-                          {!! Form::label('start_date','Start Date:') !!}
+                          {!! Form::label('year','Year:') !!}
                           <div class="">
-                          {!! Form::date('start_date', null, ['class' => 'form-control']) !!}
-                          {!! $errors->first('start_date', '<p class="alert alert-danger">:message</p>') !!}
+                          {!! Form::date('year', null, ['class' => 'form-control']) !!}
+                          {!! $errors->first('year', '<p class="alert alert-danger">:message</p>') !!}
                           </div>
                         </div>
                       </div>
  
-                      <div class="col-xs-3 col-sm-3 col-md-3">
+                      <div class="col-xs-4 col-sm-4 col-md-4">
                         <div class="form-group">
-                          {!! Form::label('end_date','End Date:') !!}
+                          {!! Form::label('year_purchased','Year Purchased:') !!}
                           <div class="">
-                          {!! Form::date('end_date', null, ['class' => 'form-control']) !!}
-                          {!! $errors->first('end_date', '<p class="alert alert-danger">:message</p>') !!}
+                          {!! Form::date('year_purchased', null, ['class' => 'form-control']) !!}
+                          {!! $errors->first('year_purchased', '<p class="alert alert-danger">:message</p>') !!}
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-xs-4 col-sm-4 col-md-4">
+                        <div class="form-group">
+                          {!! Form::label('currently_own','Currently Own?') !!}
+                          <div class="">
+                          {!! Form::checkbox('currently_own', null, ['class' => 'form-control']) !!}
+                          {!! $errors->first('currently_own', '<p class="alert alert-danger">:message</p>') !!}
                           </div>
                         </div>
                       </div>
  
                       <div class="col-xs-1 col-sm-1 col-md-1 text-center"> &nbsp;<br/>
-                      {!! Form::submit('Add Event',['class'=>'btn btn-primary']) !!}
+                      {!! Form::submit('Add Boat',['class'=>'btn btn-primary']) !!}
                       </div>
                     </div>
                    {!! Form::close() !!}
@@ -83,14 +93,8 @@
              </div>
  
             </div>
- 
-            <div class="panel panel-primary">
-              <div class="panel-heading">MY Event Details</div>
-              <div class="panel-body" >
-                  {!! $calendar_details->calendar() !!}
-              </div>
-            </div>
- 
+
+
             </div>
 
 

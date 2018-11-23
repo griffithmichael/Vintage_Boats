@@ -17,10 +17,13 @@ class CreateGalleriesTable extends Migration
             /*$table->increments('id');
             $table->timestamps();*/
 
-            $table->increments('picture_id');
-            $table->foreign('member_id')->references('id')->on('users');
+            $table->increments('id');
+            $table->integer('gallery_id');
+            $table->integer('gallery_by');
+            $table->string('title');
+            $table->foreign('gallery_by')->references('id')->on('users');
             $table->integer('images');
-            $table->date('date_posted');
+            $table->timestamps();
         });
     }
 

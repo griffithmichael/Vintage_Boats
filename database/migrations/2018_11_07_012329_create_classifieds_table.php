@@ -18,12 +18,13 @@ class CreateClassifiedsTable extends Migration
             $table->timestamps();*/
 
             $table->increments('classified_id');
-            $table->foreign('member_id')->references('id')->on('users');
+            $table->integer('posted_by');
+            $table->foreign('posted_by')->references('id')->on('users');
             $table->string('title');
             $table->string('description');
             $table->integer('cost');
             $table->integer('images');
-            $table->date('date_posted');
+            $table->timestamps();
         });
     }
 

@@ -7,4 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Boat extends Model
 {
     //
+
+	    protected $fillable = [
+    	'VIN','owned_by','model', 'manufacturer', 'year', 'year_purchased','currently_own'
+    ];
+
 }

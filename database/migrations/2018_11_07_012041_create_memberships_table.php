@@ -17,6 +17,7 @@ class CreateMembershipsTable extends Migration
             /*$table->increments('id');
             $table->timestamps();*/
 
+            $table->integer('member_id');
             $table->foreign('member_id')->references('id')->on('users');
             $table->date('expiration_date');
             $table->boolean('paid');   

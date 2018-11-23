@@ -18,7 +18,8 @@ class CreateBoatsTable extends Migration
             $table->timestamps();*/
 
             $table->string('VIN')->unique();
-            $table->foreign('member_id')->references('id')->on('users');
+            $table->integer('owned_by');
+            $table->foreign('owned_by')->references('id')->on('users');
             $table->string('model');
             $table->string('manufacturer');
             $table->date('year');

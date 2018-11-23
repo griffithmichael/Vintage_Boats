@@ -40,9 +40,10 @@
 
             <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-          <a class="p-2 text-muted" href="#">Events</a>
-          <a class="p-2 text-muted" href="#">Classifieds</a>
-          <a class="p-2 text-muted" href="#">Galleries</a>
+          <a class="p-2 text-muted" href="/events">Events</a>
+          <a class="p-2 text-muted" href="/classifieds">Classifieds</a>
+          <a class="p-2 text-muted" href="/galleries">Galleries</a>
+          <a class="p-2 text-muted" href="/boats">My Boats</a>
 {{--           <a class="p-2 text-muted" href="#">Design</a>
           <a class="p-2 text-muted" href="#">Culture</a>
           <a class="p-2 text-muted" href="#">Business</a>

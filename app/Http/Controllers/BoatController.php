@@ -15,6 +15,7 @@ class BoatController extends Controller
     public function index()
     {
         //
+        return view('boats.index');
     }
 
     /**
