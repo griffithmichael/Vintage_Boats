@@ -14,7 +14,9 @@ class ClassifiedController extends Controller
      */
     public function index()
     {
-        //
+        $classifieds = Classified::all();
+        
+        return view('classifieds.index', ['classifieds' => $classifieds]);
     }
 
     /**
@@ -24,7 +26,7 @@ class ClassifiedController extends Controller
      */
     public function create()
     {
-        //
+        return view('classifieds.create');
     }
 
     /**

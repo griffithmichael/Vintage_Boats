@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ClassifiedController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,4 +43,7 @@ Route::post('/events', 'EventController@store')->name('events.store');
 
 Route::get('/events/{event_id}', 'EventController@show');
 
-
+Route::get('/classifieds', 'ClassifiedController@index');
+Route::get('/classifieds/new', 'ClassifiedController@create');
+Route::get('/classifieds/{classified_id}', 'ClassifiedController@show');
+Route::post('/classifieds/new', 'ClassifiedController@store')->name('classifieds.store');
