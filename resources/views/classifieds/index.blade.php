@@ -10,7 +10,7 @@
     </div>
 
     <div class="text-center mb-3">
-        {!! Form::open(array('route' => 'classifieds.create','method'=>'GET','files'=>'true')) !!}
+        {!! Form::open(array('route' => 'classifieds.store','method'=>'GET','files'=>'false')) !!}
             {!! Form::submit('Create a Listing',['class'=>'btn btn-outline-primary']) !!}
         {!! Form::close() !!}
     </div>
