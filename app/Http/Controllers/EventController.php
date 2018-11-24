@@ -17,22 +17,37 @@ class EventController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
     public function index()
     {
-        $events = Event::get();
-        $event_list = [];
-        foreach ($events as $key => $event) {
-            $event_list[] = Calendar::event(
-                $event->event_name,
-                true,
-                new \DateTime($event->start_date),
-                new \DateTime($event->end_date.' +1 day')
-            );
+        $events = [];
+        $data = Event::all();
+        if($data->count()) {
+            foreach ($data as $key => $value) {
+                $events[] = Calendar::event(
+                    $value->event_name,
+                    true,
+                    new \DateTime($value->start_date),
+                    new \DateTime($value->end_date.' +1 day'),
+                    null,
+                    // Add color and link on event
+                    [
+                        'url' => 'events/' . $value->event_id,
+                    ]
+                );
+            }
         }
-        $calendar_details = Calendar::addEvents($event_list); 
-      //  $events = Event::all();
-        return view('events.index', compact('calendar_details'));
+        $calendar = Calendar::addEvents($events);
+        return view('events.index', compact('calendar'));
     }
+
+
+
+
+
+
+
 
     /**
      * Show the form for creating a new resource.
@@ -90,9 +105,14 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show($id)
     {
-        //
+
+       $event = Event::find($id);
+
+        return view('events.show',compact('event'));
+
+      //  return $event;
     }
 
     /**

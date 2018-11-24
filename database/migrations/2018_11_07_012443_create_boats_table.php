@@ -24,7 +24,7 @@ class CreateBoatsTable extends Migration
             $table->string('manufacturer');
             $table->date('year');
             $table->date('year_purchased');
-            $table->boolean('currently_own');
+            $table->boolean('currently_own')->default(0);
             
         });
     }

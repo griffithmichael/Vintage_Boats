@@ -12,4 +12,6 @@ class Event extends Model
 
     public $timestamps = false;
 
+    protected  $primaryKey = 'event_id';
+
 }

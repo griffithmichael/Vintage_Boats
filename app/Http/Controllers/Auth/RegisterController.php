@@ -8,6 +8,7 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use File;
 
 class RegisterController extends Controller
 {
@@ -81,10 +82,15 @@ class RegisterController extends Controller
 
         ]);
 
-        $makeDir = \Storage::makeDirectory('database/users/'.$user->id , 0775,true);
+/*        $makeDir = \Storage::makeDirectory('database/users/'.$user->id , 0775,true);
         $makeDir = \Storage::makeDirectory('database/users/'.$user->id.'/classifieds' , 0775,true);
-        $makeDir = \Storage::makeDirectory('database/users/'.$user->id.'/boats' , 0775,true);
-        $makeDir = \Storage::makeDirectory('database/users/'.$user->id.'/galleries' , 0775,true);
+        $makeDir = \Storage::makeDirectory('database/users/'.$user->id.'/galleries' , 0775,true);*/
+
+
+
+        $makeDir = File::makeDirectory(public_path().'/database/users/'.$user->id , 0775,true);
+        $makeDir = File::makeDirectory(public_path().'/database/users/'.$user->id.'/classifieds' , 0775,true);
+        $makeDir = File::makeDirectory(public_path().'/database/users/'.$user->id.'/galleries' , 0775,true);
 
 
         return $user;

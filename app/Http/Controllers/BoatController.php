@@ -37,6 +37,42 @@ class BoatController extends Controller
     public function store(Request $request)
     {
         //
+
+/*        if($request()->has('currently_own'))
+        {
+            $currently_own = 1;
+        }
+        else
+        {
+            $currently_own = 0;
+        }*/
+
+        if (is_null(($request['currently_own'])))
+        {
+            $currently_own = 0;
+        }
+        else
+        {
+            $currently_own = 1;
+        }
+
+        $boat = new Boat;
+        $boat->VIN = $request['VIN'];
+        $boat->owned_by = auth()->user()->id;
+        $boat->model = $request['model'];
+        $boat->manufacturer = $request['manufacturer'];
+        $boat->year = $request['year'];
+        $boat->year_purchased = $request['year_purchased'];
+        $boat->currently_own = $currently_own;
+        $boat->save();
+
+
+        return back();
+
+
+
+
+
     }
 
     /**

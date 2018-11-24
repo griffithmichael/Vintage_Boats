@@ -12,9 +12,10 @@
             <h2 class="blog-post-title">
             Your Boats</h2>
 
-                   {!! Form::open(array('route' => 'events.store','method'=>'POST','files'=>'true')) !!}
+                   {!! Form::open(array('route' => 'boats.store','method'=>'POST','files'=>'true')) !!}
                     <div class="row">
                        <div class="col-xs-12 col-sm-12 col-md-12">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                           @if (Session::has('success'))
                              <div class="alert alert-success">{{ Session::get('success') }}</div>
                           @elseif (Session::has('warnning'))
@@ -78,7 +79,7 @@
                         <div class="form-group">
                           {!! Form::label('currently_own','Currently Own?') !!}
                           <div class="">
-                          {!! Form::checkbox('currently_own', null, ['class' => 'form-control']) !!}
+                          {!! Form::checkbox('currently_own', 1, ['class' => 'form-control']) !!}
                           {!! $errors->first('currently_own', '<p class="alert alert-danger">:message</p>') !!}
                           </div>
                         </div>

@@ -16,16 +16,16 @@
 			 	</tr>
 
 			  @foreach($galleries as $gallery)
-
                       <tr>
-
                         <td>
-{{--                         	{{$gallery->title}} 
- --}}                        	{{$gallery['title']}} 
+                        	{{$gallery->title}} 
                         </td>
-                        
+                      </tr>
+                        <tr>
                         <td>
-{{--                         	<img src="storage/app/database/users/{{$gallery->gallery_by}}/galleries/{{$gallery->gallery_id}}/1.PNG" alt="User Pictures"> --}}
+
+
+                          <img src="{{ asset('database/users/'.$gallery->gallery_by.'/galleries/'.$gallery->gallery_id.'/1.PNG') }}" width="256" height="256">
                         </td>
 
                       </tr>

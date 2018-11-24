@@ -7,6 +7,7 @@ use App\User;
 //use Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use File;
 
 class GalleryController extends Controller
 {
@@ -49,15 +50,17 @@ class GalleryController extends Controller
         
        $user_id =  \Auth::id();
 
-       $dir = '../storage/app/database/users/'.$user_id.'/galleries';
+     //  $dir = '../storage/app/database/users/'.$user_id.'/galleries';
+
+       $dir = public_path().'/database/users/'.$user_id.'/galleries';
 
        $gallery_count = (count(scandir($dir)) -2);
 
        $new_gallery_count = ($gallery_count + 1);
 
-       $new_gallery = \Storage::makeDirectory('database/users/'.$user_id.'/galleries/'.$new_gallery_count , 0775,true);
+       $new_gallery = File::makeDirectory(public_path().'/database/users/'.$user_id.'/galleries/'.$new_gallery_count , 0775,true);
 
-       $new_gallery_dir = '../storage/app/database/users/'.$user_id.'/galleries/'.$new_gallery_count;
+       $new_gallery_dir = public_path().'/database/users/'.$user_id.'/galleries/'.$new_gallery_count;
 
        $new_picture_amnt = (count(scandir($new_gallery_dir)) -2);
 

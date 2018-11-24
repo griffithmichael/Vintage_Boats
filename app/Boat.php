@@ -12,4 +12,6 @@ class Boat extends Model
     	'VIN','owned_by','model', 'manufacturer', 'year', 'year_purchased','currently_own'
     ];
 
+    public $timestamps = false;
+
 }
