@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Membership;
 //use Illuminate\Foundation\Auth\File;
 
 use App\Http\Controllers\Controller;
@@ -80,6 +81,16 @@ class RegisterController extends Controller
             'postalcode' => $data['postalcode'],
             'phone' => $data['phone'],
 
+        ]);
+
+        $end = date('Y-m-d', strtotime('+1 year'));
+
+
+        $membership = Membership::create([
+            'member_id' => $user->id,
+            'expiration_date' => $end,
+            'paid' => 1,
+        
         ]);
 
 /*        $makeDir = \Storage::makeDirectory('database/users/'.$user->id , 0775,true);

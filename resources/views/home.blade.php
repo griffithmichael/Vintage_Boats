@@ -14,7 +14,12 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Welcome back {{$user->first_name . ' ' . $user->last_name}} <br/>
+
+                    Your  member ship expires {{ \Carbon\Carbon::parse($membership->expiration_date)->diffForHumans()}}  
+                    [{{ $length }} days ] 
+                    be sure to renew by {{$membership->expiration_date}}
+
                 </div>
             </div>
         </div>

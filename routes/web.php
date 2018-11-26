@@ -47,3 +47,5 @@ Route::get('/classifieds', 'ClassifiedController@index');
 Route::get('/classifieds/new', 'ClassifiedController@create');
 Route::get('/classifieds/{classified_id}', 'ClassifiedController@show');
 Route::post('/classifieds/new', 'ClassifiedController@store')->name('classifieds.store');
+
+Route::get('/classifieds/delete/{classified_id}', 'ClassifiedController@destroy')->name('classifieds.destroy');
