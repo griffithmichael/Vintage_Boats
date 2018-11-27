@@ -16,11 +16,18 @@
            Event Description: {{$event->description}} <br/>
 
            Event Start Date: {{$event->start_date}} <br/>
-           Event End Date: {{$event->end_date}}
+           Event End Date: {{$event->end_date}} <br/>
 
 
+           @if($count == 0)
 
+           <a class="btn btn-sm btn-outline-secondary" href="/events/attending/{{$event->event_id}}">Attending</a>
 
+           @else
+
+           <a class="btn btn-sm btn-outline-secondary" href="/events/unattending/{{$event->event_id}}">No longer Attending</a>
+
+           @endif
 
           </div><!-- /.blog-post -->
 

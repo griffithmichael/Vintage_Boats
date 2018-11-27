@@ -96,7 +96,48 @@
             </div>
 
 
+                  @foreach ($boats as $boat)
+            <div class="card flex-md-row mb-4 shadow-sm h-md-200">
+                <div class="card-body d-flex flex-column align-items-start">
+                    <strong class="d-inline-block mb-2 text-primary">{{$boat->VIN}}</strong>
+{{--                     <h3 class="mb-0">
+                        <a class="text-dark" href="/classifieds/{{ $classified->classified_id }}">{{ $classified->title }}</a>
+                    </h3>
+ --}}
+                    <div class="mb-1 text-muted">Posted by 
+                        {{$user = App\User::find($boat->owned_by)->first_name}}
+                        {{$user = App\User::find($boat->owned_by)->last_name}}
+                    </div>
+
+                    <div class="mb-1 text-muted"> 
+                        {{$boat->manufacturer}}
+                        {{$boat->model}}
+                    </div>
+
+{{--                     {{$classified->user()}}
+ --}}
+
+
+                    {{-- <p class="card-text mb-auto">{{$classified->description}}</p>
+
+                    @if(Auth::user()->id == $classified->posted_by)
+                    <a class="btn btn-sm btn-outline-secondary" 
+                    href="/classifieds/delete/{{$classified->classified_id}}">Delete Posting</a>
+
+                    @elseif(Auth::user()->is_admin)
+                    <a class="btn btn-sm btn-outline-secondary" 
+                    href="/classifieds/delete/{{$classified->classified_id}}">Delete Posting</a>
+                    @endif --}}
+
+                    
+
+
+
+                </div>
+                {{-- <img class="card-img-right flex-auto d-none d-lg-block p-3" style="max-height:200px" 
+                src="{{asset("database/classified/".$classified->classified_id."/1.PNG")}}" alt="Card image cap"> --}}
             </div>
+        @endforeach
 
 
 

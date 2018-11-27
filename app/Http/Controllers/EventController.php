@@ -38,13 +38,31 @@ class EventController extends Controller
                 );
             }
         }
+
+
+
         $calendar = Calendar::addEvents($events);
         return view('events.index', compact('calendar'));
     }
 
+    public function attend($id)
+    {
+        \DB::table('attendees')->insert([
+            'event_id'  => $id,
+            'user_id'   => auth()->user()->id
+            ]);
+        return back();
+    }
 
+    public function unattend($id)
+    {
+        \DB::table('attendees')->where('event_id',$id)
+        ->where('user_id',auth()->user()->id)
+        ->delete();
 
+        return back();
 
+    }
 
 
 
@@ -110,7 +128,13 @@ class EventController extends Controller
 
        $event = Event::find($id);
 
-        return view('events.show',compact('event'));
+       // $count = \DB::table('attendees')->count();
+
+      $count =  \DB::table('attendees')->where('event_id',$id)
+        ->where('user_id',auth()->user()->id)->count();
+
+
+        return view('events.show',compact('event','count'));
 
       //  return $event;
     }

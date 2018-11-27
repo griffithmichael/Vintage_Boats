@@ -57,6 +57,7 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
             'postalcode' => 'required|string|max:255',
+            'address' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
         ]);
     }
@@ -79,6 +80,7 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'postalcode' => $data['postalcode'],
+            'address' => $data['address'],
             'phone' => $data['phone'],
 
         ]);
@@ -99,9 +101,9 @@ class RegisterController extends Controller
 
 
 
-        $makeDir = File::makeDirectory(public_path().'/database/users/'.$user->id , 0775,true);
-        $makeDir = File::makeDirectory(public_path().'/database/users/'.$user->id.'/classifieds' , 0775,true);
-        $makeDir = File::makeDirectory(public_path().'/database/users/'.$user->id.'/galleries' , 0775,true);
+        // $makeDir = File::makeDirectory(public_path().'/database/users/'.$user->id , 0775,true);
+        // $makeDir = File::makeDirectory(public_path().'/database/users/'.$user->id.'/classifieds' , 0775,true);
+        // $makeDir = File::makeDirectory(public_path().'/database/users/'.$user->id.'/galleries' , 0775,true);
 
 
         return $user;

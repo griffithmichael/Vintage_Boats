@@ -42,6 +42,8 @@ Route::get('/events', 'EventController@index');
 Route::post('/events', 'EventController@store')->name('events.store');
 
 Route::get('/events/{event_id}', 'EventController@show');
+Route::get('/events/attending/{event_id}', 'EventController@attend');
+Route::get('/events/unattending/{event_id}', 'EventController@unattend');
 
 Route::get('/classifieds', 'ClassifiedController@index');
 Route::get('/classifieds/new', 'ClassifiedController@create');
@@ -49,3 +51,6 @@ Route::get('/classifieds/{classified_id}', 'ClassifiedController@show');
 Route::post('/classifieds/new', 'ClassifiedController@store')->name('classifieds.store');
 
 Route::get('/classifieds/delete/{classified_id}', 'ClassifiedController@destroy')->name('classifieds.destroy');
+
+Route::get('/admin/users', 'AdminController@users');
+Route::get('/admin/mail/{user_id}', 'AdminController@mail');

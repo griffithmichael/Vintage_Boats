@@ -17,8 +17,7 @@ class CreateGalleriesTable extends Migration
             /*$table->increments('id');
             $table->timestamps();*/
 
-            $table->increments('id');
-            $table->integer('gallery_id');
+            $table->increments('gallery_id');
             $table->integer('gallery_by');
             $table->string('title');
             $table->foreign('gallery_by')->references('id')->on('users');

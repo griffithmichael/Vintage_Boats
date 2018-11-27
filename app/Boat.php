@@ -14,4 +14,9 @@ class Boat extends Model
 
     public $timestamps = false;
 
+        public function user() //$post->user
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

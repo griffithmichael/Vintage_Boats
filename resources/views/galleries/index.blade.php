@@ -15,6 +15,12 @@
 			 		<td>Your Photo Galleries</td>
 			 	</tr>
 
+            <div class="text-center mb-3">
+        {!! Form::open(array('route' => 'gallery.upload','method'=>'GET','files'=>'false')) !!}
+            {!! Form::submit('Upload a Photo Gallery',['class'=>'btn btn-outline-primary']) !!}
+        {!! Form::close() !!}
+          </div>
+
 			  @foreach($galleries as $gallery)
                       <tr>
                         <td>
@@ -25,7 +31,10 @@
                         <td>
 
 
-                          <img src="{{ asset('database/users/'.$gallery->gallery_by.'/galleries/'.$gallery->gallery_id.'/1.PNG') }}" width="256" height="256">
+                          <img 
+
+                          {{-- src="{{ asset('database/users/'.$gallery->gallery_by.'/galleries/'.$gallery->gallery_id.'/1.PNG') }}" --}}
+                          src="{{asset("database/galleries/".$gallery->gallery_id."/1.PNG")}}" alt="Card image cap" width="256" height="256">
                         </td>
 
                       </tr>

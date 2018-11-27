@@ -50,21 +50,35 @@ class GalleryController extends Controller
         
        $user_id =  \Auth::id();
 
+/*            $galleries = Gallery::create([
+            'gallery_id' => $new_gallery_count,
+            'gallery_by' => auth()->user()->id;,
+            'title' => $title,
+            'images' => $0,
+
+        ]);*/
+
+        $galleries = new Gallery;
+        $galleries->title = $request['title'];
+        $galleries->images = 0;
+        $galleries->gallery_by = auth()->user()->id;
+        $galleries->save();
+
+
+
      //  $dir = '../storage/app/database/users/'.$user_id.'/galleries';
 
-       $dir = public_path().'/database/users/'.$user_id.'/galleries';
+       $dir = public_path().'/database/galleries';
 
        $gallery_count = (count(scandir($dir)) -2);
 
        $new_gallery_count = ($gallery_count + 1);
 
-       $new_gallery = File::makeDirectory(public_path().'/database/users/'.$user_id.'/galleries/'.$new_gallery_count , 0775,true);
+       $new_gallery = File::makeDirectory(public_path().'/database/galleries/'.$galleries->gallery_id , 0775,true);
 
-       $new_gallery_dir = public_path().'/database/users/'.$user_id.'/galleries/'.$new_gallery_count;
+       $new_gallery_dir = public_path().'/database/galleries/'.$galleries->gallery_id;
 
        $new_picture_amnt = (count(scandir($new_gallery_dir)) -2);
-
-       $title = $request->input('title');
 
 
 
@@ -76,24 +90,21 @@ class GalleryController extends Controller
 
                 $extention = $image->getClientOriginalExtension();
                 
-                //$image_name = $image->getClientOriginalName();
-
-                // $new_image_name = ($amnt_pictures + 1)
-
-                // Storage::move('hodor/file1.jpg', 'holdthedoor/file2.jpg');
-
                 $image->move($new_gallery_dir, ($new_picture_amnt .'.'. $extention));
             }
         }
 
-        $galleries = Gallery::create([
+/*        $galleries = Gallery::create([
             //'name' => $data['name'],
             'gallery_id' => $new_gallery_count,
             'gallery_by' => $user_id,
             'title' => $title,
             'images' => $new_picture_amnt,
 
-        ]);
+        ]);*/
+
+         $galleries->images = $new_picture_amnt;
+         $galleries->save();
 
 
 

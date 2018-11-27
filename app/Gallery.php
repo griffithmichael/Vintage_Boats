@@ -17,4 +17,6 @@ class Gallery extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    protected  $primaryKey = 'gallery_id';
 }
