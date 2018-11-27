@@ -1,27 +1,48 @@
 @extends('layout')
+
 @section('content')
+<div class="col">
+<h1 class="text-center">{{$classified->title}}</h1>
+<div class="row">
+    <div class="col-8">
+        <div class="classified-image-continer text-center border p-1">
+            <img src="{{asset("lymans.jpg")}}" alt="Image Container" class="img-fluid">
+        </div>
 
+        <div class="classified-thumbnail-container">
+            <img src="{{asset("lymans.jpg")}}" alt="Image Container" class="img-fluid img-thumbnail" style="height:150px">
+            <img src="{{asset("lymans.jpg")}}" alt="Image Container" class="img-fluid img-thumbnail" style="height:150px">
+            <img src="{{asset("lymans.jpg")}}" alt="Image Container" class="img-fluid img-thumbnail" style="height:150px">
+        </div>
 
-
-
-          <div class="blog-post">
-            <h2 class="blog-post-title">For Sale</h2>
-{{--             <p class="blog-post-meta">January 1, 2014 by <a href="#">Mark</a></p> --}}
+        <h2>
+            ${{$classified->cost}}
+        </h2>
+        <h4>Posted {{$classified->created_at}} by {{$classified->posted_by}}</h4>
+        <p>{{$classified->description}}</p>
+    </div>
+    <div class="col-4">
+        <div class="row">
+            <div class="col bg-light border">
+                <h4 class="text-center pt-2">Contact This Seller</h4>
+                {!! Form::open(array('route' => 'classifieds','method'=>'GET','files'=>'true')) !!}
         
-
-              
-
-           {{$classified->title }}
-           {{$classified->description }}
-           {{$classified->cost }}
-
-
-
-
-
-          </div><!-- /.blog-post -->
-
-
-        </div><!-- /.blog-main -->
+                    {!! Form::label('email','Your Email:') !!}
+                    {!! Form::text('email', null, ['class' => 'form-control ml-1', 'style'=>'width:90%', 'placeholder'=>'name@example.com']) !!}
+                    <br/>
+                    {!! Form::label('message','Your Message:') !!}
+                    {!! Form::textArea('email', null, ['class' => 'form-control ml-1', 'style'=>'width:90%', 'placeholder'=>'Hi, I am contacting you regarding your ad on the Vintage Boat Association website!']) !!}
+        
+                    {!! Form::submit('Contact',['class'=>'btn btn-outline-secondary m-2 my-4']) !!}
+                        
+                {!! Form::close() !!}
+            </div>
+        </div>
+        <div class="row"></div>
+    </div>
+    
+</div>
+<br/>
+</div>
 
 @endsection

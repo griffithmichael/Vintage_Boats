@@ -39,7 +39,9 @@
                     <p class="card-text mb-auto">{{$classified->description}}</p>
                     {{-- <a href="#">Continue reading</a> --}}
 
-                    @if(Auth::user()->id == $classified->posted_by)
+                    @if(!(Auth::user()))
+
+                    @elseif(Auth::user()->id == $classified->posted_by)
                     <a class="btn btn-sm btn-outline-secondary" 
                     href="/classifieds/delete/{{$classified->classified_id}}">Delete Posting</a>
 

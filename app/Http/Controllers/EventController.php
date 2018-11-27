@@ -126,7 +126,7 @@ class EventController extends Controller
     public function show($id)
     {
 
-       $event = Event::find($id);
+        $event = Event::find($id);
 
        // $count = \DB::table('attendees')->count();
 
