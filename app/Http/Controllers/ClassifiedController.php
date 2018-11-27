@@ -20,7 +20,7 @@ class ClassifiedController extends Controller
     public function index()
     {
         $classifieds = Classified::all();
-        
+
         return view('classifieds.index', ['classifieds' => $classifieds]);
     }
 
@@ -103,7 +103,7 @@ class ClassifiedController extends Controller
     public function show($id)
     {
         $classified = Classified::where('classified_id', $id)->first();
-        
+
         return view('classifieds.show',compact('classified'));
     }
 
