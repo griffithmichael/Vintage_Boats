@@ -123,3 +123,19 @@ h1, h2, h3, h4, h5, h6 {
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+/*
+ * Classified Gallery
+ */
+.classified-image-container {
+  max-height: 600px;
+  height: 600px;
+}
+
+.classified-thumbnail-reel-container {
+  height: 250px;
+}
+
+.classified-thumbnail-reel-container img{
+  height: 200px;
+}

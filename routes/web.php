@@ -43,7 +43,7 @@ Route::post('/events', 'EventController@store')->name('events.store');
 
 Route::get('/events/{event_id}', 'EventController@show');
 
-Route::get('/classifieds', 'ClassifiedController@index');
+Route::get('/classifieds', 'ClassifiedController@index')->name('classifieds');
 Route::get('/classifieds/new', 'ClassifiedController@create');
-Route::get('/classifieds/{classified_id}', 'ClassifiedController@show');
+Route::get('/classifieds/{classified_id}', 'ClassifiedController@show')->name('classifieds.show');
 Route::post('/classifieds/new', 'ClassifiedController@store')->name('classifieds.store');

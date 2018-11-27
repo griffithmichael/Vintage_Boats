@@ -46,9 +46,11 @@ class ClassifiedController extends Controller
      * @param  \App\Classified  $classified
      * @return \Illuminate\Http\Response
      */
-    public function show(Classified $classified)
+    public function show($id)
     {
-        //
+        $classified = Classified::where('classified_id', $id)->first();
+
+        return view('classifieds.show',compact('classified'));
     }
 
     /**
