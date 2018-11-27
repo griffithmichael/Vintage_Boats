@@ -97,7 +97,7 @@ class GalleryController extends Controller
 
 
 
-        return view('galleries.index', compact('galleries'));
+        return redirect('/galleries');
 
 
 

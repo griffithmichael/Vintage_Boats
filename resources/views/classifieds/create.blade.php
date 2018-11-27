@@ -15,12 +15,16 @@
                 {!! Form::text('location', null, ['class' => 'form-control ml-4', 'style'=>'width:40%']) !!}
             </div>
             <div class="form-group">
-                <h4>{!! Form::label('price','Price:') !!}</h4>
-                <div class="row ml-4"><h4>$</h4>{!! Form::number('price', null, ['class' => 'form-control ml-2', 'style'=>'width:25%']) !!}</div>
+                <h4>{!! Form::label('cost','Cost:') !!}</h4>
+                <div class="row ml-4"><h4>$</h4>{!! Form::number('cost', null, ['class' => 'form-control ml-2', 'style'=>'width:25%']) !!}</div>
             </div>
             <div class="form-group">
                 <h4>{!! Form::label('description','Description:') !!}</h4>
                 {!! Form::textArea('description', null, ['class' => 'form-control ml-4', 'style'=>'width:60%']) !!}
+            </div>
+            <div class="form-group">
+                <h4>{!! Form::label('images','Pictures:') !!}</h4>
+                <input type="file" name="images[]" multiple="true">
             </div>
             {!! Form::submit('Submit',['class'=>'btn-lg btn-outline-primary mt-4 mb-5']) !!}
         </div>

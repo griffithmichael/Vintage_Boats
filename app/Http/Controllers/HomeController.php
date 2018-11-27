@@ -3,6 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+
+use User;
+use Auth;
+use \App\Membership;
 
 class HomeController extends Controller
 {
@@ -23,7 +28,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        $membership = Membership::find($user->id);
+        $now = Carbon::now();
+
+        $end_date = Carbon::parse($membership->expiration_date);
+
+        $length = $end_date->diffInDays($now);
+
+        return view('home',compact('user','membership','end','length'));
     }
 
     public function about()
