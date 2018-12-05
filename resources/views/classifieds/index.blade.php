@@ -56,7 +56,8 @@
 
                 </div>
                 <img class="card-img-right flex-auto d-none d-lg-block p-3" style="max-height:200px" 
-                src="{{asset("database/classified/".$classified->classified_id."/1.PNG")}}" alt="Card image cap">
+                src="{{asset("database/classified/".
+                          $classified->classified_id."/".scandir(public_path().'/database/classified/' . $classified->classified_id)[2])}}" alt="Card image cap">
             </div>
         @endforeach
 

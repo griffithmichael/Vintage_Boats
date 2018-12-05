@@ -6,7 +6,7 @@
             
             </h4>
             
-            <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
+            <p class="mb-0">Vintage Boat Association was started in 1995 by Simon Gellar. It has since grown to a Canada wide organization. The Ontario Chapter has operated since Janaury 9, 1997.</p>
           </div>
 
           <div class="p-3">
@@ -28,11 +28,11 @@
           </div>
 
           <div class="p-3">
-            <h4 class="font-italic">Elsewhere</h4>
+            <h4 class="font-italic">Social</h4>
             <ol class="list-unstyled">
-              <li><a href="#">GitHub</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Facebook</a></li>
+{{--               <li><a href="#">GitHub</a></li>
+ --}}              <li><a href="https://twitter.com/VBAOntario">Twitter</a></li>
+              <li><a href="https://www.facebook.com/VBAOntario/">Facebook</a></li>
             </ol>
           </div>
         </aside><!-- /.blog-sidebar -->

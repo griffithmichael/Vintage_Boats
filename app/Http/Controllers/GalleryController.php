@@ -19,6 +19,12 @@ class GalleryController extends Controller
     public function index(Gallery $galleries)
     {
         $galleries = $galleries->all();
+        $thumbnails = array();
+
+        foreach ($galleries as $gallery) {
+
+            $thumbnails[] = scandir(public_path().'/database/galleries/' . $gallery->gallery_id)[2];            
+        }
 
         return view('galleries.index',compact('galleries'));
     }

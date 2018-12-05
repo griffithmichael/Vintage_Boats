@@ -6,19 +6,42 @@
 <div class="row">
     <div class="col-8">
         <div class="classified-image-continer text-center border p-1">
-            <img src="{{asset("lymans.jpg")}}" alt="Image Container" class="img-fluid">
+            <img 
+            src="{{asset("database/classified/".
+                          $classified->classified_id."/".scandir(public_path().'/database/classified/' . $classified->classified_id)[2])}}"
+
+            alt="Image Container" class="img-fluid">
         </div>
 
         <div class="classified-thumbnail-container">
-            <img src="{{asset("lymans.jpg")}}" alt="Image Container" class="img-fluid img-thumbnail" style="height:150px">
-            <img src="{{asset("lymans.jpg")}}" alt="Image Container" class="img-fluid img-thumbnail" style="height:150px">
-            <img src="{{asset("lymans.jpg")}}" alt="Image Container" class="img-fluid img-thumbnail" style="height:150px">
+
+            @foreach(scandir(public_path().'/database/classified/' . $classified->classified_id) as $picture)
+
+                @if($picture !== '.' and $picture !== '..')
+
+                    <img 
+
+                    src="{{asset("database/classified/".$classified->classified_id."/".$picture)}}"
+
+                    alt="Image Container" class="img-fluid img-thumbnail" style="height:150px">
+
+                @endif
+
+            @endforeach
+
+            
+{{--             <img src="{{asset("lymans.jpg")}}" alt="Image Container" class="img-fluid img-thumbnail" style="height:150px">
+            <img src="{{asset("lymans.jpg")}}" alt="Image Container" class="img-fluid img-thumbnail" style="height:150px"> --}}
         </div>
 
         <h2>
             ${{$classified->cost}}
         </h2>
-        <h4>Posted {{$classified->created_at}} by {{$classified->posted_by}}</h4>
+        <h4>Posted {{$classified->created_at}} by 
+                        {{$user = App\User::find($classified->posted_by)->first_name}}
+                        {{$user = App\User::find($classified->posted_by)->last_name}} 
+
+        </h4>
         <p>{{$classified->description}}</p>
     </div>
     <div class="col-4">

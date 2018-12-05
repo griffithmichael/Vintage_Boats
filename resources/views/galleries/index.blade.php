@@ -21,6 +21,7 @@
         {!! Form::close() !!}
           </div>
 
+
 			  @foreach($galleries as $gallery)
                       <tr>
                         <td>
@@ -30,11 +31,16 @@
                         <tr>
                         <td>
 
-
+{{--                          {{scandir(public_path().'/database/galleries/' . $gallery->gallery_id)[2]}} 
+ --}}
                           <img 
 
+
+
                           {{-- src="{{ asset('database/users/'.$gallery->gallery_by.'/galleries/'.$gallery->gallery_id.'/1.PNG') }}" --}}
-                          src="{{asset("database/galleries/".$gallery->gallery_id."/1.PNG")}}" alt="Card image cap" width="256" height="256">
+                          src="{{asset("database/galleries/".
+                          $gallery->gallery_id."/".scandir(public_path().'/database/galleries/' . $gallery->gallery_id)[2])}}" 
+                          alt="Card image cap" width="256" height="256">
                         </td>
 
                       </tr>

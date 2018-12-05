@@ -2,7 +2,7 @@
 @section('content')
 
 
-@include('layouts.featured')
+{{-- @include('layouts.featured') --}}
 @include('layouts.sidebars')
 
 
