@@ -39,6 +39,8 @@ class HomeController extends Controller
         return view('home',compact('user','membership','end','length'));
     }
 
+
+
     public function about()
     {
         return view('about');

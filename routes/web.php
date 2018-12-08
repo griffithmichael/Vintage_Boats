@@ -13,9 +13,11 @@ use App\Http\Controllers\ClassifiedController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+// Route::get('/', function () {
+//     return view('index');
+// });
+
+Route::get('/', 'BlogController@home')->name('main');
 
 Route::get('/about', function () {
     return view('about');
@@ -33,10 +35,12 @@ Route::post('/boats', 'BoatController@store')->name('boats.store');
 Route::get('/galleries', 'GalleryController@index');
 Route::post('/galleries', 'GalleryController@index');
 
-Route::get('/galleries/{user_id}/{picture_id}', 'GalleryController@show');
+// Route::get('/galleries/{gallery_id}', 'GalleryController@show');
 
 Route::get('/galleries/upload', 'GalleryController@upload');
 Route::post('/galleries/upload', 'GalleryController@store')->name('gallery.upload');
+Route::get('/galleries/delete/{gallery_id}', 'GalleryController@destroy')->name('galleries.destroy');
+
 
 Route::get('/events', 'EventController@index');
 Route::post('/events', 'EventController@store')->name('events.store');
@@ -54,3 +58,7 @@ Route::get('/classifieds/delete/{classified_id}', 'ClassifiedController@destroy'
 
 Route::get('/admin/users', 'AdminController@users');
 Route::get('/admin/mail/{user_id}', 'AdminController@mail');
+
+Route::get('/blogs', 'BlogController@index');
+Route::post('/blogs', 'BlogController@store')->name('blogs.store');
+

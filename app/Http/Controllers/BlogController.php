@@ -15,6 +15,11 @@ class BlogController extends Controller
     public function index()
     {
         //
+        $blogs = Blog::All();
+        // $latest = $blogs->latest()->get();
+        // return view('index',compact('latest'));
+        return view('blogs.index');
+
     }
 
     /**
@@ -27,6 +32,13 @@ class BlogController extends Controller
         //
     }
 
+    public function home()
+    {
+        $blogs = Blog::All();
+        $latest = Blog::latest()->first();
+        return view('index',compact('blogs','latest'));
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +47,15 @@ class BlogController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $blog = new Blog;
+        $blog->blog_by = auth()->user()->id;
+        $blog->title = $request['title'];
+        $blog->body = $request['body'];
+        $blog->save();
+
+        return back();
+
     }
 
     /**
