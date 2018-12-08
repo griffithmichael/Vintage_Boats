@@ -1,15 +1,9 @@
-@extends('layout')
-
-@section('content')
+@extends('layouts.dashboard')
+@section('page_heading', 'VBA Users')
+@section('section')
     
 
 <div class="col">
-
-    <div class="text-center p-3">
-        <h1>VBA Users</h1>
-    </div>
-
-
 
     <div class="row">
 

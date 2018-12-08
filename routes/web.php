@@ -62,4 +62,3 @@ Route::get('/admin/mail/{user_id}', 'AdminController@mail');
 
 Route::get('/blogs', 'BlogController@index');
 Route::post('/blogs', 'BlogController@store')->name('blogs.store');
-

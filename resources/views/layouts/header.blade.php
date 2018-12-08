@@ -51,7 +51,11 @@
           <div class="col-4 d-flex justify-content-end align-items-center">
 
             @if(Auth::check())
+              @if(Auth::user()->is_admin)
+              <a class="btn btn-sm btn-outline-secondary" href="/admin">Dashboard</a>
+              @else
               <a class="btn btn-sm btn-outline-secondary" href="/home">Dashboard</a>
+              @endif
             @else
               <a class="btn btn-sm btn-outline-secondary" href="/register">Sign up</a>
             @endif
