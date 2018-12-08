@@ -31,7 +31,7 @@ class GalleryController extends Controller
 
     public function upload()
     {
-        return view('galleries.upload');
+        return view('galleries/upload');
     }
 
     /**
@@ -129,9 +129,11 @@ class GalleryController extends Controller
      * @param  \App\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function show(Gallery $gallery)
+    public function show($gallery_id)
     {
-        //
+        $gallery = Gallery::where('gallery_id', $gallery_id)->first();
+
+        return view('galleries.show',compact('gallery'));
     }
 
     /**

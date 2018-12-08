@@ -17,6 +17,14 @@
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $('#carouselExampleIndicators').carousel();
+});
+</script>
   </head>
 
     <body>

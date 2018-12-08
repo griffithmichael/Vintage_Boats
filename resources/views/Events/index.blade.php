@@ -9,10 +9,10 @@
 
 
           <div class="blog-post">
-            <h2 class="blog-post-title">
-            Event Calendar</h2>
+            <h2 class="blog-post-title text-center"><u>Event Calendar</u></h2>
 
-                    @if(Auth::user()->is_admin)
+                    @if(!(Auth::user()))
+                    @elseif(Auth::user()->is_admin)
 
                     
 
@@ -84,7 +84,6 @@
                       </div>
                     </div>
                    {!! Form::close() !!}
-
                    @endif
 
                    <head>

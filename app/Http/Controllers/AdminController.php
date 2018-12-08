@@ -13,11 +13,17 @@ class AdminController extends Controller
 
         return view('admin.users',compact('users'));
     }
+
     public function mail($id)
     {
         $user = User::find($id);
 
         return view('admin.mail',compact('user'));
+    }
+
+    public function home()
+    {
+        return view('admin.home');
     }
 
 }

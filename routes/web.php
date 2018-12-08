@@ -56,6 +56,7 @@ Route::post('/classifieds/new', 'ClassifiedController@store')->name('classifieds
 
 Route::get('/classifieds/delete/{classified_id}', 'ClassifiedController@destroy')->name('classifieds.destroy');
 
+Route::get('/admin', 'AdminController@home');
 Route::get('/admin/users', 'AdminController@users');
 Route::get('/admin/mail/{user_id}', 'AdminController@mail');
 
