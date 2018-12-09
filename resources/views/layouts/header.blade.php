@@ -17,6 +17,14 @@
     <!-- Custom styles for this template -->
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
     <link href="/css/app.css" rel="stylesheet">
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script type="text/javascript">
+    $(function(){
+        $('#carouselExampleIndicators').carousel();
+});
+</script>
   </head>
 
     <body>
@@ -43,7 +51,11 @@
           <div class="col-4 d-flex justify-content-end align-items-center">
 
             @if(Auth::check())
+              @if(Auth::user()->is_admin)
+              <a class="btn btn-sm btn-outline-secondary" href="/admin">Dashboard</a>
+              @else
               <a class="btn btn-sm btn-outline-secondary" href="/home">Dashboard</a>
+              @endif
             @else
               <a class="btn btn-sm btn-outline-secondary" href="/register">Sign up</a>
             @endif

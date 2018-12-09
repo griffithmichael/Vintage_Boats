@@ -13,6 +13,7 @@ class AdminController extends Controller
 
         return view('admin.users',compact('users'));
     }
+
     public function mail($id)
     {
         $user = User::find($id);
@@ -24,6 +25,11 @@ class AdminController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect('admin/users');
+    }
+
+    public function home()
+    {
+        return view('admin.home');
     }
 
 }

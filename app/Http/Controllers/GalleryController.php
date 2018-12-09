@@ -31,7 +31,7 @@ class GalleryController extends Controller
 
     public function upload()
     {
-        return view('galleries.upload');
+        return view('galleries/upload');
     }
 
     /**
@@ -132,6 +132,10 @@ class GalleryController extends Controller
     public function show($id)
     {
         $gallery = Gallery::where('gallery_id', $id)->first();
+    public function show($gallery_id)
+    {
+        $gallery = Gallery::where('gallery_id', $gallery_id)->first();
+
 
         return view('galleries.show',compact('gallery'));
     }
