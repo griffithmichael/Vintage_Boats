@@ -58,6 +58,7 @@ class RegisterController extends Controller
             'password' => 'required|string|min:6|confirmed',
             'postalcode' => 'required|string|max:255',
             'address' => 'required|string|max:255',
+            'city' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
         ]);
     }
@@ -81,6 +82,7 @@ class RegisterController extends Controller
             'password' => bcrypt($data['password']),
             'postalcode' => $data['postalcode'],
             'address' => $data['address'],
+            'city' => $data['city'],
             'phone' => $data['phone'],
 
         ]);

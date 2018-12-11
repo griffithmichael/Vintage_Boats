@@ -52,7 +52,7 @@
                         <div class="form-group">
                             {!! Form::label('description','Description:') !!}
                             <div class="">
-                            {!! Form::text('description', null, ['class' => 'form-control']) !!}
+                            {!! Form::textarea('description', null, ['class' => 'form-control']) !!}
                             {!! $errors->first('description', '<p class="alert alert-danger">:message</p>') !!}
                             </div>
                         </div>

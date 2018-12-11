@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Redirect;
 use Calendar;
 use Auth;
 use Validator;
+use Illuminate\Support\Facades\DB;
+
 
 class EventController extends Controller
 {
@@ -133,8 +135,22 @@ class EventController extends Controller
       $count =  \DB::table('attendees')->where('event_id',$id)
         ->where('user_id',auth()->user()->id)->count();
 
+        //$items = \DB::table('event_items')->where('event_id',$id)->get();
 
-        return view('events.show',compact('event','count'));
+        $items = \DB::table('event_items')
+
+                ->select('classifieds.*')
+
+                ->join('classifieds', 'event_items.classified_id', '=', 'classifieds.classified_id')
+
+                ->where('event_items.event_id','=',$id)
+
+                ->get();
+
+               // return $items;
+
+
+        return view('events.show',compact('event','count','items'));
 
       //  return $event;
     }
@@ -145,6 +161,35 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
+
+
+    public function topevents()
+    {
+                // $topevents = \DB::table('attendees')
+
+                
+
+                // ->join('events', 'attendees.event_id', '=', 'events.event_id')
+
+                // ->select('events.event_name')
+
+                // ->count('attendees.event_id');
+
+                // return $topevents;
+
+
+        $data = \DB::table('attendees')
+            ->join('events', 'attendees.event_id', '=', 'events.event_id')
+            ->select(
+                'events.event_name AS event_name',
+                DB::raw("count(attendees.event_id) AS amount_attending"))
+        ->groupBy('attendees.event_id')
+        ->get();
+
+        return $data;
+    }
+
+
     public function edit(Event $event)
     {
         //

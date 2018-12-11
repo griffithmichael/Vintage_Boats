@@ -21,7 +21,7 @@ class CreateBlogsTable extends Migration
             $table->integer('blog_by');
             $table->foreign('blog_by')->references('id')->on('users');
             $table->string('title');
-            $table->string('body');
+            $table->text('body');
             // $table->integer('images');
            // $table->date('date_posted');
             $table->timestamps();

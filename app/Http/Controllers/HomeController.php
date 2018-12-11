@@ -7,6 +7,7 @@ use Carbon\Carbon;
 
 use User;
 use Auth;
+use \App\Classified;
 use \App\Membership;
 
 class HomeController extends Controller
@@ -29,7 +30,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $membership = Membership::find($user->id);
+        $membership = Membership::find($user->id)->latest()->first();
         $now = Carbon::now();
 
         $end_date = Carbon::parse($membership->expiration_date);
@@ -43,6 +44,19 @@ class HomeController extends Controller
 
     public function about()
     {
-        return view('about');
+
+        $sold = Classified::where('sold','=','1')->get();
+
+        $revenue = 0;
+
+        foreach ($sold as $soldItem) {
+
+
+        $revenue += $soldItem->cost;
+        }
+
+       // return $revenue;
+
+        return view('about',compact('revenue'));
     }
 }

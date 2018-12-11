@@ -40,16 +40,42 @@
                     {{-- <a href="#">Continue reading</a> --}}
 
                     @if(Auth::check())
-                    @if(!(Auth::user()))
+                        @if(!(Auth::user()))
 
-                    @elseif(Auth::user()->id == $classified->posted_by)
-                    <a class="btn btn-sm btn-outline-secondary" 
-                    href="/classifieds/delete/{{$classified->classified_id}}">Delete Posting</a>
+                        @elseif(Auth::user()->id == $classified->posted_by)
+                            <a class="btn btn-sm btn-outline-secondary" 
+                            href="/classifieds/delete/{{$classified->classified_id}}">Delete Posting</a>
 
-                    @elseif(Auth::user()->is_admin)
-                    <a class="btn btn-sm btn-outline-secondary" 
-                    href="/classifieds/delete/{{$classified->classified_id}}">Delete Posting</a>
-                    @endif
+                            <a class="btn btn-sm btn-outline-secondary" 
+                            href="/classifieds/sold/{{$classified->classified_id}}">Mark Sold</a>
+
+                        @elseif(Auth::user()->is_admin)
+                            <a class="btn btn-sm btn-outline-secondary" 
+                            href="/classifieds/delete/{{$classified->classified_id}}">Delete Posting</a>
+                            @endif
+
+
+
+                        @if(Auth::user()->id == $classified->posted_by)
+
+                            <p>Item will be for sale at:</p>
+
+                                {!! Form::open(array('route' => 'classifieds.list','method'=>'POST','files'=>'true')) !!}
+
+
+                                {{ Form::select('event_id', $events, null, ['class' => 'form-control']) }}
+                           
+                                {{ Form::hidden('classified_id', $classified->classified_id) }}
+
+
+
+                                {!! Form::submit('List',['class'=>'btn btn-outline-primary']) !!}
+                                {!! Form::close() !!}
+
+
+                        @endif
+
+
                     @endif
 
                     
@@ -65,7 +91,7 @@
 
         </div>
 
-        <div class="col-3">
+{{--         <div class="col-3">
             <div class="p-3 mb-3 bg-light rounded">
                 {!! Form::open(array('route' => 'classifieds.store','method'=>'GET','files'=>'true')) !!}
                 <div class="row m-2 justify-content-between">
@@ -133,7 +159,7 @@
                 </div>
                 {!! Form::close() !!}
             </div>
-        </div>
+        </div> --}}
     </div>
 
 </div>

@@ -21,9 +21,10 @@ class CreateClassifiedsTable extends Migration
             $table->integer('posted_by');
             $table->foreign('posted_by')->references('id')->on('users');
             $table->string('title');
-            $table->string('description');
+            $table->text('description');
             $table->integer('cost');
             $table->integer('images');
+            $table->boolean('sold')->default(0);
             $table->timestamps();
         });
     }

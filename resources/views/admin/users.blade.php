@@ -35,7 +35,13 @@
 
 				<p>@include('widgets.icon', array('class'=>'th-large')) fa-th-large
 
+<<<<<<< Updated upstream
 				<p>@include('widgets.icon', array('class'=>'th')) fa-th
+=======
+                    <a class="btn btn-sm btn-outline-secondary" 
+                    href="/admin/renew/{{$user->id}}">Renew Membership</a>
+
+>>>>>>> Stashed changes
 
 				<p>@include('widgets.icon', array('class'=>'th-list')) fa-th-list
 

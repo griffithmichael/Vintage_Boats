@@ -55,15 +55,18 @@
                     </div>
 
 
-                    @if(!(Auth::user()))
+                    @if((Auth::check()))
 
-                    @elseif(Auth::user()->id == $gallery->posted_by)
-                    <a class="btn btn-sm btn-outline-secondary" 
-                    href="/galleries/delete/{{$gallery->gallery_id}}">Delete Posting</a>
+                        @if(Auth::user()->id == $gallery->gallery_by)
+                        <a class="btn btn-sm btn-outline-secondary" 
+                        href="/galleries/delete/{{$gallery->gallery_id}}">Delete Posting</a>
 
-                    @elseif(Auth::user()->is_admin)
-                    <a class="btn btn-sm btn-outline-secondary" 
-                    href="/galleries/delete/{{$gallery->gallery_id}}">Delete Posting</a>
+                        @elseif(Auth::user()->is_admin)
+                        <a class="btn btn-sm btn-outline-secondary" 
+                        href="/galleries/delete/{{$gallery->gallery_id}}">Delete Posting</a>
+
+                        @endif
+                    
                     @endif
 
                     
