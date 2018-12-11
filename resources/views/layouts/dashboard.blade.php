@@ -24,65 +24,14 @@
                         <li {{ (Request::is('/admin') ? 'class="active"' : '') }}>
                             <a href="{{ url ('admin') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
-                        <li >
-                            <a href="#"><i class="fa fa-users fa-fw"></i> Users<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*admin/users/all') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('admin/users/all') }}"> Manage Users</a>
-                                </li>
-                                <li {{ (Request::is('*admin/users/reports') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('admin/users/reports' ) }}"> Reports</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                        <li {{ (Request::is('*admin/users/all') ? 'class="active"' : '') }}>
+                            <a href="{{ url ('admin/users/all') }}"><i class="fa fa-users fa-fw"></i> Users</a>
                         </li>
-                        <li >
-                            <a href="#"><i class="fa fa-bed fa-fw"></i> Beds<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*beds/report') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('/beds/report') }}"> Room Utilization Report</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
+                        <li {{ (Request::is('/admin/boats') ? 'class="active"' : '') }}>
+                            <a href="{{ url ('admin/boats') }}"><i class="fa fa-anchor fa-fw"></i> Boats</a>
                         </li>
-                        <li >
-                            <a href="#"><i class="fa fa-stethoscope fa-fw"></i> Physicians<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*physicians/lookup*') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('/physicians/lookup') }}"> Lookup Physician Info</a>
-                                </li>
-                                <li {{ (Request::is('*physicians/report') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('/physicians/report' ) }}"> Admitted Patients Report</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li >
-                            <a href="#"><i class="fa fa-money fa-fw"></i> Billing<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*billing/lookup') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('/billing/lookup') }}"> Lookup Patient Bill</a>
-                                </li>
-                                <li {{ (Request::is('*billing/create') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('/billing/create' ) }}"> Enter a New Transaction</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li >
-                            <a href="#"><i class="fa fa-book fa-fw"></i> Inventory<span class="fa arrow"></span></a>
-                            <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*inventory/items') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('/inventory/items') }}"> Lookup Inventory Item</a>
-                                </li>
-                                <li {{ (Request::is('*inventory/cost_centers') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('/inventory/cost_centers' ) }}"> Manage Cost Centers</a>
-                                </li>
-                            </ul>
-                            <!-- /.nav-second-level -->
-                        </li>
-                        <li {{ (Request::is('*documentation') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('documentation') }}"><i class="fa fa-file-word-o fa-fw"></i> Documentation</a>
+                        <li {{ (Request::is('/admin/events') ? 'class="active"' : '') }}>
+                            <a href="{{ url ('admin/events') }}"><i class="fa fa-calendar fa-fw"></i> Events</a>
                         </li>
                     </ul>
                 </div>

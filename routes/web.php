@@ -64,6 +64,8 @@ Route::get('/admin/users/all', 'AdminController@users');
 Route::get('/admin/users/reports', 'AdminController@userReports');
 Route::get('/admin/users/delete/{user_id}', 'AdminController@destroy');
 Route::get('/admin/mail/{user_id}', 'AdminController@mail');
+Route::get('/admin/boats', 'AdminController@boats');
+Route::get('/admin/events', 'AdminController@events');
 
 Route::get('/blogs', 'BlogController@index');
 Route::post('/blogs', 'BlogController@store')->name('blogs.store');

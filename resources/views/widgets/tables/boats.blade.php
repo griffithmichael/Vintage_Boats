@@ -1,11 +1,11 @@
 <table class="table {{ $class }}">
     <thead>
 		<tr>
-            <th><a href="">ID</a></th>
-			<th>Name</th>
-			<th>Email</th>
-			<th>Postal Code</th>
-			<th>Phone</th>
+            <th>VIN</th>
+			<th>Model</th>
+			<th>Manufacturer</th>
+			<th>Date Prod.</th>
+			<th>Date Purchased</th>
 			<th>Actions</th>
 		</tr>
 	</thead>

@@ -13,7 +13,21 @@ class AdminController extends Controller
     {
         $users = User::all();
 
-        return view('admin.users',compact('users'));
+        //get labels for the previous 8 months
+        $upmLabels = array();
+        for ($i=0; $i < 8; $i++) { 
+            array_unshift($upmLabels, (Carbon::now()->addMonth($i*-1)->format('F Y')));
+        }
+        $upmLabels = json_encode($upmLabels);
+
+        //get counts of how many users registered each month over the last 8 months
+        $upmData = array();
+        for ($i=0; $i < 8; $i++) { 
+            array_unshift($upmData, User::whereYear('created_at', '=', date('Y'))->whereMonth('created_at', '=', date('m')-$i)->get()->count());
+        }
+        $upmData = json_encode($upmData);
+
+        return view('admin.users',compact('users', 'upmData', 'upmLabels'));
     }
 
     public function mail($id)
@@ -36,20 +50,28 @@ class AdminController extends Controller
 
     public function userReports()
     {
-        //get labels for the previous 8 months
-        $upmLabels = array();
-        for ($i=0; $i < 8; $i++) { 
-            array_unshift($upmLabels, (Carbon::now()->addMonth($i*-1)->format('F Y')));
-        }
-        $upmLabels = json_encode($upmLabels);
+        
 
-        //get counts of how many users registered each month over the last 8 months
-        $upmData = array();
-        for ($i=0; $i < 8; $i++) { 
-            array_unshift($upmData, User::whereYear('created_at', '=', date('Y'))->whereMonth('created_at', '=', date('m')-$i)->get()->count());
-        }
-        $upmData = json_encode($upmData);
+        
 
+        
+
+        return view('admin.report', compact('bbmData', 'epData'));
+    }
+
+    public function boats()
+    {
+
+        $bbmData = json_encode(DB::select(DB::raw('SELECT manufacturer, COUNT(*)
+                                        FROM boats
+                                        GROUP BY manufacturer
+                                        ORDER BY COUNT(*) DESC')));
+
+        return view('admin.boats', compact('bbmData'));
+    }
+
+    public function events()
+    {
         $epData = DB::table('attendees')
             ->join('events', 'attendees.event_id', '=', 'events.event_id')
             ->select(
@@ -60,11 +82,6 @@ class AdminController extends Controller
 
         $epData = json_encode($epData);
 
-        $bbmData = json_encode(DB::select(DB::raw('SELECT manufacturer, COUNT(*)
-                                        FROM boats
-                                        GROUP BY manufacturer
-                                        ORDER BY COUNT(*) DESC')));
-
-        return view('admin.report', compact('upmData', 'upmLabels', 'bbmData', 'epData'));
+        return view('admin.events', compact('epData'));
     }
 }
