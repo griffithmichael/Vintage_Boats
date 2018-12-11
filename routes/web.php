@@ -40,12 +40,15 @@ Route::post('/galleries', 'GalleryController@index');
 Route::get('/galleries/upload', 'GalleryController@upload');
 Route::post('/galleries/upload', 'GalleryController@store')->name('gallery.upload');
 Route::get('/galleries/delete/{gallery_id}', 'GalleryController@destroy')->name('galleries.destroy');
+Route::get('/galleries/{gallery_id}', 'GalleryController@show')->name('galleries.show');
+
 
 
 Route::get('/events', 'EventController@index');
 Route::post('/events', 'EventController@store')->name('events.store');
 
 Route::get('/events/{event_id}', 'EventController@show');
+Route::get('/events/delete/{event_id}', 'EventController@destroy');
 Route::get('/events/attending/{event_id}', 'EventController@attend');
 Route::get('/events/unattending/{event_id}', 'EventController@unattend');
 
@@ -59,6 +62,7 @@ Route::get('/classifieds/delete/{classified_id}', 'ClassifiedController@destroy'
 Route::get('/admin', 'AdminController@home');
 Route::get('/admin/users/all', 'AdminController@users');
 Route::get('/admin/users/reports', 'AdminController@userReports');
+Route::get('/admin/users/delete/{user_id}', 'AdminController@destroy');
 Route::get('/admin/mail/{user_id}', 'AdminController@mail');
 
 Route::get('/blogs', 'BlogController@index');

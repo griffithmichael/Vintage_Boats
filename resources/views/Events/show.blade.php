@@ -18,7 +18,7 @@
         <img src="{{asset("map.png")}}" alt="Image Container" class="" style="width:100%">
     </div>
 
-               @if($count == 0)
+            @if($count == 0)
 
            <a class="btn btn-sm btn-outline-secondary" href="/events/attending/{{$event->event_id}}">Attending</a>
 
@@ -27,6 +27,20 @@
            <a class="btn btn-sm btn-outline-secondary" href="/events/unattending/{{$event->event_id}}">No longer Attending</a>
 
            @endif
+
+
+            @if(Auth::check())
+            @if(!(Auth::user()))
+
+            @elseif(Auth::user()->id == $event->hosted_by)
+            <a class="btn btn-sm btn-outline-secondary" 
+            href="/events/delete/{{$event->event_id}}">Delete Event</a>
+
+            @elseif(Auth::user()->is_admin)
+            <a class="btn btn-sm btn-outline-secondary" 
+            href="/events/delete/{{$event->event_id}}">Delete Event</a>
+            @endif
+            @endif
     
 </div>
 <br/>

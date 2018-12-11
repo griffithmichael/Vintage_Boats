@@ -22,6 +22,12 @@ class AdminController extends Controller
 
         return view('admin.mail',compact('user'));
     }
+    public function destroy($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect('admin/users');
+    }
 
     public function home()
     {
