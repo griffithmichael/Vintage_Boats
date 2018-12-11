@@ -129,9 +129,6 @@ class GalleryController extends Controller
      * @param  \App\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        $gallery = Gallery::where('gallery_id', $id)->first();
     public function show($gallery_id)
     {
         $gallery = Gallery::where('gallery_id', $gallery_id)->first();

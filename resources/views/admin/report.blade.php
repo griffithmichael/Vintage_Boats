@@ -4,7 +4,6 @@
 <div class="col-sm-12">	
 	<div class="row">
 		<div class="col-sm-6">
-		<p>{{$epData}}</p>
 			@section ('cchart1_panel_title','New Users Per Month')
 			@section ('cchart1_panel_body')
 			@include('widgets.charts.usersPerMonth')
@@ -27,12 +26,6 @@
 				<script>CreateBoatManChart(<?php echo $bbmData ?>);</script>
 			@endsection
 			@include('widgets.panel', array('header'=>true, 'as'=>'cchart2'))
-
-			@section ('cchart4_panel_title','Bar Chart')
-			@section ('cchart4_panel_body')
-			@include('widgets.charts.cbarchart')
-			@endsection
-			@include('widgets.panel', array('header'=>true, 'as'=>'cchart4'))
 		</div> 
 	</div>
 	

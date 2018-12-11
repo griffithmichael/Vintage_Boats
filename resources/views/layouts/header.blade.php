@@ -82,7 +82,7 @@
 
             @if(Auth::user()->is_admin)
 
-            <a class="p-2 text-muted" href="/admin/users">Users</a>
+            <a class="p-2 text-muted" href="/admin/users/all">Users</a>
 
             @endif
           @endif
