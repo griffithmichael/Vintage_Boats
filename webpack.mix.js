@@ -12,4 +12,14 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css');
+   .sass('resources/assets/sass/app.scss', 'public/css')
+   .js([
+      'resources/js/jquery.js',
+      'resources/js/bootstrap.js',
+      'resources/js/Chart.js',
+      'resources/js/metisMenu.js',
+      'resources/js/sb-admin-2.js',
+      'resources/js/frontend.js',
+      'resources/js/functions.js'
+  ], 'public/assets/scripts/frontend.js')
+  .sourceMaps();

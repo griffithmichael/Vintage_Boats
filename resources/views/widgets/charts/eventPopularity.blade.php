@@ -1,0 +1,1 @@
+<canvas id="cEventPopularity" width="350" height="220"></canvas>

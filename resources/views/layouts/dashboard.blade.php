@@ -12,7 +12,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url ('') }}">MVCH Administration Dashboard</a>
+                <a class="navbar-brand" href="{{ url ('/') }}">Vintage Boat Association - Ontario Chapter</a>
             </div>
             <!-- /.navbar-header -->
 
@@ -21,17 +21,17 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li {{ (Request::is('/') ? 'class="active"' : '') }}>
-                            <a href="{{ url ('') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <li {{ (Request::is('/admin') ? 'class="active"' : '') }}>
+                            <a href="{{ url ('admin') }}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
                         <li >
-                            <a href="#"><i class="fa fa-ambulance fa-fw"></i> Patients<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-users fa-fw"></i> Users<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <li {{ (Request::is('*patients/lookup') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('patients/lookup') }}"> Lookup Patient Info</a>
+                                <li {{ (Request::is('*admin/users/all') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('admin/users/all') }}"> Manage Users</a>
                                 </li>
-                                <li {{ (Request::is('*patients/create') ? 'class="active"' : '') }}>
-                                    <a href="{{ url ('patients/create' ) }}"> Enter a New Patient</a>
+                                <li {{ (Request::is('*admin/users/reports') ? 'class="active"' : '') }}>
+                                    <a href="{{ url ('admin/users/reports' ) }}"> Reports</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->

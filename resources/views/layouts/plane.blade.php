@@ -13,9 +13,16 @@
 	<meta content="" name="author"/>
 
 	<link rel="stylesheet" href="{{ asset("assets/stylesheets/styles.css") }}" />
+	
 </head>
 <body>
+<script src="{{ asset("assets/scripts/jquery.js") }}" type="text/javascript"></script>
+<script src="{{ asset("assets/scripts/bootstrap.js") }}" type="text/javascript"></script>
+<script src="{{ asset("assets/scripts/Chart.js") }}" type="text/javascript"></script>
+<script src="{{ asset("assets/scripts/metisMenu.js") }}" type="text/javascript"></script>
+<script src="{{ asset("assets/scripts/sb-admin-2.js") }}" type="text/javascript"></script>
+<script src="{{ asset("assets/scripts/functions.js") }}" type="text/javascript"></script>
 	@yield('body')
-	<script src="{{ asset("assets/scripts/frontend.js") }}" type="text/javascript"></script>
+<!--<script src="{{ asset("assets/scripts/frontend.js") }}" type="text/javascript"></script>-->
 </body>
 </html>

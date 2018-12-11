@@ -1,0 +1,1 @@
+<canvas id="cBoatsByManufacturer" width="350" height="350"></canvas>
