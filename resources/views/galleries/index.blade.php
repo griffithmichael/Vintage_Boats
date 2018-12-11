@@ -22,13 +22,13 @@
                 @foreach ($galleries as $gallery)
                     <div class="img-thumbnail m-2" style="width:300px; height:300px; padding:10px">
                         <div class="justify-content-between">
-                            <h3 class="mb-0">
+                            <h5 class="mb-0">
                                 <a class="text-dark" href="/galleries/{{ $gallery->gallery_id }}">{{ $gallery->title }}</a>
-                            </h3>
+                            </h5>
         
                             <small class="mb-1 text-muted">Posted on {{$gallery->created_at}} by 
                                 {{$user = App\User::find($gallery->gallery_by)->first_name}}
-                                {{$user = App\User::find($gallery->gallery_by)->last_name}}
+
                             </small>
       
                             @if(!(Auth::user()))
@@ -48,10 +48,37 @@
                                     $gallery->gallery_id."/".scandir(public_path().'/database/galleries/' . $gallery->gallery_id)[2])}}" alt="Card image cap">
                         </div>
                     </div>
-                @endforeach
-              </div>
-              </div>
-          </div>
+  @endforeach   
+
+
+{{--                     @if((Auth::check()))
+
+                        @if(Auth::user()->id == $gallery->gallery_by)
+                        <a class="btn btn-sm btn-outline-secondary" 
+                        href="/galleries/delete/{{$gallery->gallery_id}}">Delete Posting</a>
+
+                        @elseif(Auth::user()->is_admin)
+                        <a class="btn btn-sm btn-outline-secondary" 
+                        href="/galleries/delete/{{$gallery->gallery_id}}">Delete Posting</a>
+
+                        @endif
+                    
+                    @endif --}}
+
+                    
+
+
+
+
+
+                   
+              	
+              
+          </div><!-- /.blog-post -->
+        </div><!-- /.blog-main -->
+      </div>
+
           <br>   
         </div>
+
 @endsection

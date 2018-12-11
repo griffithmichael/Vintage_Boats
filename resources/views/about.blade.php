@@ -22,6 +22,11 @@
             </blockquote>
             <p>Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p> --}}
 
+            <p>
+
+              To date the Ontario Chapter of Vintage Boat Association has generated ${{$revenue}} amongst members of the organization through the resale of vintage boating items at community events.
+            </p>
+
 
         </div><!-- /.blog-main -->
 

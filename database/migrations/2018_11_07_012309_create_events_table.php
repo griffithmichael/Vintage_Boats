@@ -20,7 +20,7 @@ class CreateEventsTable extends Migration
             $table->increments('event_id');
             $table->string('event_name');
             $table->string('location');
-            $table->string('description');
+            $table->text('description');
             $table->date('start_date');
             $table->date('end_date');
             $table->integer('hosted_by');

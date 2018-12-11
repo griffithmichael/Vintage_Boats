@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Classified;
+use App\Event;
 use Illuminate\Http\Request;
 
 use App\User;
 use File;
+use Illuminate\Support\Facades\DB;
 
 class ClassifiedController extends Controller
 {
@@ -21,7 +23,53 @@ class ClassifiedController extends Controller
     {
         $classifieds = Classified::all();
 
-        return view('classifieds.index', ['classifieds' => $classifieds]);
+        $events = Event::pluck('event_name','event_id');
+
+
+
+        return view('classifieds.index', compact('classifieds','events'));
+    }
+
+        public function mycollection()
+    {
+        $classifieds = DB::table('classifieds')->where('posted_by', auth()->user()->id)->get();
+
+        $events = Event::pluck('event_name','event_id');
+
+
+        return view('classifieds.index', compact('classifieds','events'));
+    }
+
+
+
+
+    public function sold($id)
+    {
+
+        $classified = Classified::find($id);
+
+        $classified->sold = 1;
+
+        $classified->save();
+
+        return back();
+
+
+
+    }
+
+    public function listitem(Request $request)
+    {
+
+        
+        
+
+       \DB::table('event_items')->insert([
+            'event_id' => $event_id = $request['event_id'],
+            'classified_id' =>  $classified_id = $request['classified_id']
+            ]);
+        return back();
+
     }
 
     /**

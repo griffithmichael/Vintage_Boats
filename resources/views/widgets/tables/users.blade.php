@@ -18,8 +18,10 @@
                 <td>{{$user->postalcode}}</td>
                 <td>{{$user->phone}}</td>
                 <td>
-                    <a href=""><i class="fa-envelope-o fa fa-lg" title="Create a mailing label for {{$user->first_name}}"></i></a>
+                    <a href="/admin/mail/{{$user->id}}"><i class="fa-envelope-o fa fa-lg" title="Create a mailing label for {{$user->first_name}}"></i></a>
                     <a onclick="return confirm('Are you sure you wish to permanently delete this user?')" href="/admin/users/delete/{{$user->id}}" style="color:red"><i class="fa-times fa fa-lg" title="Delete this user"></i></a>
+
+                    <a href="/admin/users/renew/{{$user->id}}"><i class="fa-refresh fa fa-lg" title="Renew membership for {{$user->first_name}}"></i></a>
                 </td>
             </tr>
         @endforeach

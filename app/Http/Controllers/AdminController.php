@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
+
+
+use App\Classified;
+
 
 class AdminController extends Controller
 {
@@ -84,4 +89,31 @@ class AdminController extends Controller
 
         return view('admin.events', compact('epData'));
     }
+
+    public function renew($id)
+    {
+            
+        $membership = Membership::create([
+        'member_id' => $id,
+        'expiration_date' => $end,
+        'paid' => 1,
+        ]);
+    }
+
+    public function totalRevenue()
+    {
+        $sold = Classified::where('sold','=','1')->get();
+
+        $revenue = 0;
+
+        foreach ($sold as $soldItem) {
+
+
+        $revenue += $soldItem->cost;
+        }
+
+        return $revenue;
+    }
+
+
 }

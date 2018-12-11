@@ -28,7 +28,7 @@
                         <div class="form-group">
                             {!! Form::label('VIN','VIN:') !!}
                             <div class="">
-                            {!! Form::text('VIN', null, ['class' => 'form-control']) !!}
+                            {!! Form::text('VIN', null, ['class' => 'form-control', 'maxlength' => 17]) !!}
                             {!! $errors->first('VIN', '<p class="alert alert-danger">:message</p>') !!}
                             </div>
                         </div>
@@ -90,10 +90,14 @@
                       </div>
                     </div>
                    {!! Form::close() !!}
+
+                   <hr>
  
              </div>
  
-            </div>
+
+
+
 
 
                   @foreach ($boats as $boat)
@@ -114,20 +118,25 @@
                         {{$boat->model}}
                     </div>
 
-{{--                     {{$classified->user()}}
- --}}
+
+                        @if(Auth::user()->id == $boat->owned_by)
+
+                            <p>Do you have a gallery of this boat?</p>
+
+                                {!! Form::open(array('route' => 'boats.addgallery','method'=>'POST','files'=>'true')) !!}
 
 
-                    {{-- <p class="card-text mb-auto">{{$classified->description}}</p>
 
-                    @if(Auth::user()->id == $classified->posted_by)
-                    <a class="btn btn-sm btn-outline-secondary" 
-                    href="/classifieds/delete/{{$classified->classified_id}}">Delete Posting</a>
 
-                    @elseif(Auth::user()->is_admin)
-                    <a class="btn btn-sm btn-outline-secondary" 
-                    href="/classifieds/delete/{{$classified->classified_id}}">Delete Posting</a>
-                    @endif --}}
+                                {{ Form::select('gallery_id', $your_gallery, null, ['class' => 'form-control']) }}
+                           
+                                {{ Form::hidden('VIN', $boat->VIN) }}
+
+                                {!! Form::submit('Yes',['class'=>'btn btn-outline-primary']) !!}
+                                {!! Form::close() !!}
+
+
+                        @endif
 
                     
 
@@ -139,6 +148,22 @@
             </div>
         @endforeach
 
+        <hr>
 
+        <div class="blog-post">
+                      <h2 class="blog-post-title">
+            View pictures of the following boats:</h2>
+
+
+        @foreach ($boat_galleries as $boat_gallery)
+
+        <a class="text-dark" href="/galleries/{{ $boat_gallery->gallery_id }}">{{$boat_gallery->model . ' ' . $boat_gallery->manufacturer}} by {{$user = App\User::find($boat_gallery->gallery_by)->first_name}}</a> <br/>
+
+        @endforeach
+
+      </div>
+
+
+            </div>
 
 @endsection

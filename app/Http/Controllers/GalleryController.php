@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Gallery;
 use App\User;
-//use Illuminate\Foundation\Auth;
+use Illuminate\Support\Facades\DB;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use File;
@@ -19,14 +20,18 @@ class GalleryController extends Controller
     public function index(Gallery $galleries)
     {
         $galleries = $galleries->all();
-        $thumbnails = array();
 
-        foreach ($galleries as $gallery) {
 
-            $thumbnails[] = scandir(public_path().'/database/galleries/' . $gallery->gallery_id)[2];            
-        }
 
         return view('galleries.index',compact('galleries'));
+    }
+
+    public function mycollection()
+    {
+        $galleries = DB::table('galleries')->where('gallery_by', auth()->user()->id)->get();
+
+
+        return view('galleries.index', compact('galleries'));
     }
 
     public function upload()
@@ -129,6 +134,15 @@ class GalleryController extends Controller
      * @param  \App\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
+
+
+    // public function show($id)
+    // {
+    //     $gallery = Gallery::where('gallery_id', $id)->first();
+    // }
+    
+
+
     public function show($gallery_id)
     {
         $gallery = Gallery::where('gallery_id', $gallery_id)->first();

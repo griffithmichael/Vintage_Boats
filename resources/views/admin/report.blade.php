@@ -13,7 +13,7 @@
 
 			@section ('cchart3_panel_title','Popularity Of Recent Events')
 			@section ('cchart3_panel_body')
-				<div style="max-width:400px; margin:0 auto;">@include('widgets.charts.eventPopularity')</div>
+				<div style="max-width:600px; margin:0 auto;">@include('widgets.charts.eventPopularity')</div>
 				<script>CreateEventPopChart(<?php echo $epData ?>);</script>
 			@endsection
 			@include('widgets.panel', array('header'=>true, 'as'=>'cchart3'))

@@ -10,10 +10,10 @@
                 <h4>{!! Form::label('title','Title:') !!}</h4>
                 {!! Form::text('title', null, ['class' => 'form-control ml-4', 'style'=>'width:40%']) !!}
             </div>
-            <div class="form-group">
+{{--             <div class="form-group">
                 <h4>{!! Form::label('location','Location:') !!}</h4>
                 {!! Form::text('location', null, ['class' => 'form-control ml-4', 'style'=>'width:40%']) !!}
-            </div>
+            </div> --}}
             <div class="form-group">
                 <h4>{!! Form::label('cost','Cost:') !!}</h4>
                 <div class="row ml-4"><h4>$</h4>{!! Form::number('cost', null, ['class' => 'form-control ml-2', 'style'=>'width:25%']) !!}</div>

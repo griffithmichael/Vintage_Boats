@@ -29,9 +29,7 @@
             <div class="col-8 text-center mb-3">
                 <a href="#"><div class="btn btn-secondary">Edit Personal Info</div></a>
             </div>
-            {{-- ------------------------------ --}}
             <hr/>
-            {{-- ------------------------------ --}}
             <h3 class="font-italic ml-4">Change Password</h3>
             {!! Form::open(array('route' => 'home','method'=>'GET','files'=>'true')) !!}
             <div class="row ml-2 mt-2">
@@ -50,9 +48,7 @@
                 {!! Form::submit('Change Password',['class'=>'btn btn-secondary']) !!}
             </div>
             {!! Form::close() !!}
-            {{-- ------------------------------ --}}
             <hr/>
-            {{-- ------------------------------ --}}
             <h3 class="font-italic ml-4">Membership</h3>
             <div class="col-8 ml-4 mt-2">
                 <p>Your membership expires in {{ \Carbon\Carbon::parse($membership->expiration_date)->diffForHumans()}} ({{ $length }} days)</p>
@@ -68,10 +64,11 @@
                 <div class="col"></div>
                 <div class="col-10 border bg-light border-dark text-center">
                     <h3 class="font-italic mt-2">Manage...</h3>
-                    <a href="#"><div class="btn btn-lg btn-secondary btn-block my-4">My Boats</div></a>
-                    <a href="#"><div class="btn btn-lg btn-secondary btn-block my-4">My Registered Events</div></a>
-                    <a href="#"><div class="btn btn-lg btn-secondary btn-block my-4">My Galleries</div></a>
-                    <a href="#"><div class="btn btn-lg btn-secondary btn-block my-4">My Classifieds</div></a>
+                    <a href="/my/boats"><div class="btn btn-lg btn-secondary btn-block my-4">My Boats</div></a>
+
+                    <a href="/my/galleries"><div class="btn btn-lg btn-secondary btn-block my-4">My Galleries</div></a>
+                        <a href="/my/classifieds"><div class="btn btn-lg btn-secondary btn-block my-4">My Classifieds</div></a>
+
                 </div>
                 <div class="col"></div>
             </div>

@@ -45,7 +45,7 @@
         </h4>
 {{--         <p>{{$classified->description}}</p>
  --}}    </div>
-    <div class="col-4">
+{{--     <div class="col-4">
         <div class="row">
             <div class="col bg-light border">
                 <h4 class="text-center pt-2">Contact This Seller</h4>
@@ -63,7 +63,7 @@
             </div>
         </div>
         <div class="row"></div>
-    </div>
+    </div> --}}
     
 </div>
 <br/>
