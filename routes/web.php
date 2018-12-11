@@ -43,7 +43,11 @@ Route::post('/galleries', 'GalleryController@index');
 
 // Route::get('/galleries/{gallery_id}', 'GalleryController@show');
 
+
 Route::get('/galleries/upload', 'GalleryController@upload')->name('gallery.upload');;
+
+Route::get('/galleries/upload', 'GalleryController@upload')->name('gallery.upload');
+
 Route::post('/galleries/upload', 'GalleryController@store')->name('gallery.store');
 Route::get('/galleries/delete/{gallery_id}', 'GalleryController@destroy')->name('galleries.destroy');
 Route::get('/galleries/{gallery_id}', 'GalleryController@show')->name('galleries.show');

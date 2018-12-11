@@ -157,7 +157,7 @@
 
         @foreach ($boat_galleries as $boat_gallery)
 
-        <a class="text-dark" href="/galleries/{{ $boat_gallery->gallery_id }}">{{$boat_gallery->model . ' ' . $boat_gallery->manufacturer}} by {{$user = App\User::find($boat_gallery->gallery_by)->first_name}}</a>
+        <a class="text-dark" href="/galleries/{{ $boat_gallery->gallery_id }}">{{$boat_gallery->model . ' ' . $boat_gallery->manufacturer}} by {{$user = App\User::find($boat_gallery->gallery_by)->first_name}}</a> <br/>
 
         @endforeach
 
