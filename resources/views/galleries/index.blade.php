@@ -33,7 +33,7 @@
       
                             @if(!(Auth::user()))
         
-                            @elseif(Auth::user()->id == $gallery->posted_by)
+                            @elseif(Auth::user()->id == $gallery->gallery_by)
                             <a class="btn btn-sm btn-outline-secondary" 
                             href="/galleries/delete/{{$gallery->gallery_id}}">Delete Posting</a>
         

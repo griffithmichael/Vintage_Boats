@@ -10,7 +10,7 @@
 			@section ('cchart1_panel_title','Event Popularity')
 			@section ('cchart1_panel_body')
 			@include('widgets.charts.eventPopularity')
-				<script>CreateBoatManChart(<?php echo $epData?>);</script>
+				<script>CreateEventPopChart(<?php echo $epData?>);</script>
 			@endsection
 			@include('widgets.panel', array('header'=>true, 'as'=>'cchart1'))
 		</div>

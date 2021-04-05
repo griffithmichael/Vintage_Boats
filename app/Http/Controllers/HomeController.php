@@ -37,7 +37,7 @@ class HomeController extends Controller
 
         $length = $end_date->diffInDays($now);
 
-        return view('home',compact('user','membership','end','length'));
+        return view('home',compact('user','membership','end_date','length'));
     }
 
 

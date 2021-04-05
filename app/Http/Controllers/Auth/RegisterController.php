@@ -61,6 +61,8 @@ class RegisterController extends Controller
             'city' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
         ]);
+
+        
     }
 
     /**
